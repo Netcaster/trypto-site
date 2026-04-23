@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRYPTO — Compare Hotel Prices Worldwide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">
+        <span class="logo-t">T</span><span class="logo-ry">RY</span><span class="logo-pto">PTO</span>
+      </div>
+      <div class="nav-links">
+        <a href="#" class="nav-link active">Hotels</a>
+        <a href="#" class="nav-link">Flights</a>
+        <a href="#" class="nav-link">Packages</a>
+        <a href="#" class="nav-link">Deals</a>
+      </div>
+      <div class="nav-actions">
+        <a href="#" class="btn-ghost">Sign In</a>
+        <a href="#" class="btn-primary-sm">Join Free</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-tag">🌍 Trusted by 50 million travelers</div>
+      <h1>Find your perfect stay.<br>Pay the best price.</h1>
+      <p class="hero-sub">We compare prices across 400+ booking sites so you don't have to.</p>
+
+      <div class="search-box">
+        <div class="search-field search-destination">
+          <span class="search-icon">📍</span>
+          <div class="search-field-inner">
+            <span class="search-label">Destination</span>
+            <input type="text" placeholder="City, hotel or address" id="destination">
+          </div>
+        </div>
+        <div class="search-divider"></div>
+        <div class="search-field">
+          <span class="search-label">Check-in</span>
+          <input type="date" id="checkin">
+        </div>
+        <div class="search-divider"></div>
+        <div class="search-field">
+          <span class="search-label">Check-out</span>
+          <input type="date" id="checkout">
+        </div>
+        <div class="search-divider"></div>
+        <div class="search-field">
+          <span class="search-label">Guests &amp; rooms</span>
+          <select id="guests">
+            <option>1 adult, 1 room</option>
+            <option selected>2 adults, 1 room</option>
+            <option>2 adults, 2 rooms</option>
+            <option>2 adults, 1 child</option>
+            <option>3 adults, 1 room</option>
+          </select>
+        </div>
+        <button class="search-btn" onclick="handleSearch()">Search</button>
+      </div>
+
+      <p class="hero-note">Comparing prices from <strong>400+</strong> sites including Booking.com, Expedia, Hotels.com &amp; more</p>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-num">5M+</span>
+      <span class="stat-label">Hotels worldwide</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">400+</span>
+      <span class="stat-label">Sites compared</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">190</span>
+      <span class="stat-label">Countries covered</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">$0</span>
+      <span class="stat-label">Cost to use</span>
+    </div>
+  </div>
+
+  <!-- POPULAR DESTINATIONS -->
+  <section class="destinations">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2>Popular Destinations</h2>
+          <p class="section-sub">Trending searches this week</p>
+        </div>
+        <a href="#" class="see-all">See all destinations →</a>
+      </div>
+      <div class="destinations-grid">
+        <div class="dest-card dest-paris" onclick="searchCity('Paris')">
+          <div class="dest-overlay">
+            <span class="dest-flag">🇫🇷</span>
+            <h3>Paris</h3>
+            <p>from <strong>$89</strong>/night</p>
+          </div>
+        </div>
+        <div class="dest-card dest-tokyo" onclick="searchCity('Tokyo')">
+          <div class="dest-overlay">
+            <span class="dest-flag">🇯🇵</span>
+            <h3>Tokyo</h3>
+            <p>from <strong>$72</strong>/night</p>
+          </div>
+        </div>
+        <div class="dest-card dest-nyc" onclick="searchCity('New York')">
+          <div class="dest-overlay">
+            <span class="dest-flag">🇺🇸</span>
+            <h3>New York</h3>
+            <p>from <strong>$119</strong>/night</p>
+          </div>
+        </div>
+        <div class="dest-card dest-dubai" onclick="searchCity('Dubai')">
+          <div class="dest-overlay">
+            <span class="dest-flag">🇦🇪</span>
+            <h3>Dubai</h3>
+            <p>from <strong>$95</strong>/night</p>
+          </div>
+        </div>
+        <div class="dest-card dest-london" onclick="searchCity('London')">
+          <div class="dest-overlay">
+            <span class="dest-flag">🇬🇧</span>
+            <h3>London</h3>
+            <p>from <strong>$105</strong>/night</p>
+          </div>
+        </div>
+        <div class="dest-card dest-barcelona" onclick="searchCity('Barcelona')">
+          <div class="dest-overlay">
+            <span class="dest-flag">🇪🇸</span>
+            <h3>Barcelona</h3>
+            <p>from <strong>$78</strong>/night</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works">
+    <div class="container">
+      <h2 style="text-align:center;">How TRYPTO Works</h2>
+      <p class="section-sub" style="text-align:center;">Simple. Fast. Free.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-icon step-icon-1">🔍</div>
+          <h3>1. Search</h3>
+          <p>Enter your destination, dates, and number of guests to kick off your search.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-icon step-icon-2">📊</div>
+          <h3>2. Compare</h3>
+          <p>We instantly scan 400+ booking sites and surface the lowest prices for your trip.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-icon step-icon-3">✅</div>
+          <h3>3. Book</h3>
+          <p>Click through to book directly on the site with the best deal. No hidden fees, ever.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TODAY'S DEALS -->
+  <section class="deals">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2>Today's Top Deals</h2>
+          <p class="section-sub">Prices updated in real-time</p>
+        </div>
+        <a href="#" class="see-all">View all deals →</a>
+      </div>
+      <div class="deals-grid">
+
+        <div class="deal-card">
+          <div class="deal-img deal-img-1">
+            <div class="deal-img-overlay">
+              <span class="deal-save-badge">Save 29%</span>
+            </div>
+          </div>
+          <div class="deal-info">
+            <div class="deal-badge">🔥 Hot Deal</div>
+            <h4>Grand Hyatt Tokyo</h4>
+            <p class="deal-location">📍 Tokyo, Japan</p>
+            <div class="deal-rating">★★★★★ <span>4.8</span> (2,341 reviews)</div>
+            <div class="deal-price">
+              <span class="price-was">$210</span>
+              <span class="price-now">$149<span class="per-night">/night</span></span>
+            </div>
+            <button class="deal-btn">View Deal</button>
+          </div>
+        </div>
+
+        <div class="deal-card">
+          <div class="deal-img deal-img-2">
+            <div class="deal-img-overlay">
+              <span class="deal-save-badge">Save 30%</span>
+            </div>
+          </div>
+          <div class="deal-info">
+            <div class="deal-badge deal-badge-new">✨ Top Rated</div>
+            <h4>Hotel du Louvre</h4>
+            <p class="deal-location">📍 Paris, France</p>
+            <div class="deal-rating">★★★★★ <span>4.7</span> (1,892 reviews)</div>
+            <div class="deal-price">
+              <span class="price-was">$185</span>
+              <span class="price-now">$129<span class="per-night">/night</span></span>
+            </div>
+            <button class="deal-btn">View Deal</button>
+          </div>
+        </div>
+
+        <div class="deal-card">
+          <div class="deal-img deal-img-3">
+            <div class="deal-img-overlay">
+              <span class="deal-save-badge">Save 32%</span>
+            </div>
+          </div>
+          <div class="deal-info">
+            <div class="deal-badge deal-badge-value">💰 Best Value</div>
+            <h4>Atlantis The Palm</h4>
+            <p class="deal-location">📍 Dubai, UAE</p>
+            <div class="deal-rating">★★★★★ <span>4.9</span> (3,120 reviews)</div>
+            <div class="deal-price">
+              <span class="price-was">$320</span>
+              <span class="price-now">$219<span class="per-night">/night</span></span>
+            </div>
+            <button class="deal-btn">View Deal</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BADGES -->
+  <section class="trust-section">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon">🔒</div>
+          <h4>100% Secure</h4>
+          <p>Your data is encrypted and never shared with third parties without consent.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">💸</div>
+          <h4>Always Free</h4>
+          <p>TRYPTO is free to use. We earn a small commission from booking sites, not you.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">⚡</div>
+          <h4>Real-Time Prices</h4>
+          <p>Prices are fetched live from 400+ booking sites every time you search.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">🌐</div>
+          <h4>Global Coverage</h4>
+          <p>Search hotels in 190 countries, from budget stays to luxury resorts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Never overpay for a hotel again.</h2>
+        <p>Join 50 million travelers who save with TRYPTO every year.</p>
+        <div class="cta-buttons">
+          <button class="btn-cta-primary" onclick="document.getElementById('destination').focus(); window.scrollTo({top:0,behavior:'smooth'})">Start Searching — It's Free</button>
+          <button class="btn-cta-ghost">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo logo-sm">
+            <span class="logo-t">T</span><span class="logo-ry">RY</span><span class="logo-pto">PTO</span>
+          </div>
+          <p>The world's smartest hotel price comparison. We do the searching — you do the saving.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn">𝕏</a>
+            <a href="#" class="social-btn">f</a>
+            <a href="#" class="social-btn">in</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About TRYPTO</a>
+          <a href="#">Careers</a>
+          <a href="#">Press Room</a>
+          <a href="#">Blog</a>
+          <a href="#">Investors</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="#">Help Center</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Cookie Settings</a>
+        </div>
+        <div class="footer-col">
+          <h4>Discover</h4>
+          <a href="#">Hotel Deals</a>
+          <a href="#">Last Minute Stays</a>
+          <a href="#">Weekend Getaways</a>
+          <a href="#">Luxury Hotels</a>
+          <a href="#">Travel Guides</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 TRYPTO, Inc. All rights reserved. &nbsp;|&nbsp; Prices provided by our partners and are not guaranteed by TRYPTO.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Set default check-in/check-out dates
+    const today = new Date();
+    const checkin = new Date(today);
+    checkin.setDate(today.getDate() + 7);
+    const checkout = new Date(today);
+    checkout.setDate(today.getDate() + 10);
+
+    const fmt = d => d.toISOString().split('T')[0];
+    document.getElementById('checkin').value = fmt(checkin);
+    document.getElementById('checkout').value = fmt(checkout);
+
+    function handleSearch() {
+      const dest = document.getElementById('destination').value.trim();
+      if (!dest) {
+        document.getElementById('destination').focus();
+        document.getElementById('destination').style.outline = '2px solid #D83F1F';
+        setTimeout(() => document.getElementById('destination').style.outline = '', 1500);
+        return;
+      }
+      alert(`Searching for hotels in "${dest}"...\n\n(Search results page coming soon!)`);
+    }
+
+    function searchCity(city) {
+      document.getElementById('destination').value = city;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => document.getElementById('destination').focus(), 500);
+    }
+  </script>
+
+</body>
+</html>
