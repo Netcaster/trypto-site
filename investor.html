@@ -7,8 +7,72 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    #gate-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: linear-gradient(140deg, #002b4d 0%, #004d8a 40%, #0088d9 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Inter', sans-serif;
+    }
+    #gate-box {
+      background: white; border-radius: 16px;
+      padding: 48px 40px; width: 100%; max-width: 400px;
+      text-align: center; box-shadow: 0 32px 80px rgba(0,0,0,0.3);
+    }
+    #gate-box .gate-logo { font-size: 1.8rem; font-weight: 900; letter-spacing: -1px; margin-bottom: 8px; }
+    #gate-box .gate-logo .logo-t  { color: #D83F1F; }
+    #gate-box .gate-logo .logo-ry { color: #FF8B00; }
+    #gate-box .gate-logo .logo-pto{ color: #0088d9; }
+    #gate-box h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; color: #1a1a1a; }
+    #gate-box p  { font-size: 0.85rem; color: #6b7280; margin-bottom: 28px; }
+    #gate-input {
+      width: 100%; padding: 12px 16px; border: 1.5px solid #e4e4e0;
+      border-radius: 8px; font-size: 0.95rem; font-family: inherit;
+      outline: none; text-align: center; letter-spacing: 2px;
+      transition: border-color 0.18s; margin-bottom: 14px;
+    }
+    #gate-input:focus { border-color: #0088d9; }
+    #gate-btn {
+      width: 100%; padding: 13px; background: #0088d9; color: white;
+      border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 700;
+      cursor: pointer; font-family: inherit; transition: background 0.18s;
+    }
+    #gate-btn:hover { background: #006daf; }
+    #gate-error { color: #D83F1F; font-size: 0.82rem; margin-top: 10px; display: none; }
+  </style>
 </head>
 <body>
+
+  <!-- PASSWORD GATE -->
+  <div id="gate-overlay">
+    <div id="gate-box">
+      <div class="gate-logo"><span class="logo-t">T</span><span class="logo-ry">RY</span><span class="logo-pto">PTO</span></div>
+      <h2>Private Deal Room</h2>
+      <p>Enter your access code to continue.</p>
+      <input id="gate-input" type="password" placeholder="Access Code" onkeydown="if(event.key==='Enter') checkGate()">
+      <button id="gate-btn" onclick="checkGate()">Enter Deal Room</button>
+      <p id="gate-error">Incorrect access code. Please try again.</p>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      if (localStorage.getItem('trypto_deal_auth') === 'granted') {
+        document.getElementById('gate-overlay').style.display = 'none';
+      }
+    })();
+    function checkGate() {
+      const val = document.getElementById('gate-input').value.trim();
+      if (val === 'TRYPTO-DEAL-2026') {
+        localStorage.setItem('trypto_deal_auth', 'granted');
+        document.getElementById('gate-overlay').style.display = 'none';
+      } else {
+        document.getElementById('gate-error').style.display = 'block';
+        document.getElementById('gate-input').value = '';
+        document.getElementById('gate-input').focus();
+      }
+    }
+  </script>
 
   <!-- HEADER -->
   <header class="header">
