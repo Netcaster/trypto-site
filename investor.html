@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRYPTO — Investor Deal Room</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="logo">
+        <span class="logo-t">T</span><span class="logo-ry">RY</span><span class="logo-pto">PTO</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Hotels</a>
+        <a href="#" class="nav-link">Flights</a>
+        <a href="dashboard.html" class="nav-link">Events</a>
+        <a href="investor.html" class="nav-link active">Investor</a>
+      </div>
+      <div class="nav-actions">
+        <a href="#intake" class="btn-ghost">Submit Deal</a>
+        <a href="#intake" class="btn-primary-sm">Request Access</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-tag">Private Access</div>
+      <h1>TRYPTO Deal Room</h1>
+      <p>Live pipeline, active deals, and investor allocation access.</p>
+    </div>
+  </section>
+
+  <!-- KPI ROW -->
+  <section class="kpi-section">
+    <div class="container">
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <p class="kpi-label">Pipeline Value</p>
+          <h2 class="kpi-value">$42.6M</h2>
+        </div>
+        <div class="kpi-card">
+          <p class="kpi-label">Active Deals</p>
+          <h2 class="kpi-value">27</h2>
+        </div>
+        <div class="kpi-card">
+          <p class="kpi-label">Rooms Controlled</p>
+          <h2 class="kpi-value">48,200</h2>
+        </div>
+        <div class="kpi-card kpi-card-accent">
+          <p class="kpi-label">Projected Revenue</p>
+          <h2 class="kpi-value">$18.3M</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEAL SNAPSHOT -->
+  <section class="deal-snapshot-section">
+    <div class="container">
+      <div class="deal-snapshot-card">
+        <h3>Active Deal Snapshot</h3>
+        <p>Las Vegas Global Expo — 4,200 rooms secured across 3 properties, convention center locked, sponsor integration in progress.</p>
+        <div class="deal-snapshot-stats">
+          <div class="snapshot-stat">
+            <span>4,200</span>
+            <label>Rooms Secured</label>
+          </div>
+          <div class="snapshot-stat">
+            <span>3</span>
+            <label>Properties</label>
+          </div>
+          <div class="snapshot-stat">
+            <span>$3.2M</span>
+            <label>Projected Revenue</label>
+          </div>
+          <div class="snapshot-stat">
+            <span class="status-badge status-secured">Active</span>
+            <label>Status</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POSITIONING -->
+  <section class="positioning-section">
+    <div class="container">
+      <div class="positioning-content">
+        <h2>TRYPTO Controls Inventory.<br>Then Monetizes Every Transaction Layer.</h2>
+        <p>From venue procurement to hotel buyouts to sponsor integration — TRYPTO owns the full event hospitality stack.</p>
+        <a href="#intake" class="btn-orange-solid">Request Allocation Access</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVENUE STREAMS -->
+  <section class="revenue-section">
+    <div class="container">
+      <h2 style="text-align:center; margin-bottom:8px;">Built for Revenue, Not Just Booking</h2>
+      <p class="section-sub" style="text-align:center; margin-bottom:36px;">Multiple monetization layers across every transaction.</p>
+      <div class="revenue-grid">
+        <div class="revenue-item">Booking Margins</div>
+        <div class="revenue-item">Hotel Block Arbitrage</div>
+        <div class="revenue-item">Buyout Structuring Fees</div>
+        <div class="revenue-item">Venue Procurement Spreads</div>
+        <div class="revenue-item">Sponsorship Packaging</div>
+        <div class="revenue-item">Embedded Commerce</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEAL INTAKE FORM -->
+  <section class="intake-section" id="intake">
+    <div class="container">
+      <div class="intake-wrapper">
+        <div class="intake-header">
+          <h2>Submit Event or Inventory Opportunity</h2>
+          <p>Tell us about your event, venue, or hotel block. We'll be in touch within 24 hours.</p>
+        </div>
+        <form class="intake-form" onsubmit="handleIntake(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Event Name</label>
+              <input type="text" placeholder="e.g. Global Tech Expo 2026">
+            </div>
+            <div class="form-group">
+              <label>City / Location</label>
+              <input type="text" placeholder="e.g. Las Vegas, NV">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Estimated Room Count</label>
+              <input type="text" placeholder="e.g. 2,500">
+            </div>
+            <div class="form-group">
+              <label>Venue / Facility</label>
+              <input type="text" placeholder="e.g. Las Vegas Convention Center">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Additional Details</label>
+            <textarea placeholder="Dates, expected attendance, current partnerships, revenue targets..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Submit Opportunity</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo logo-sm">
+            <span class="logo-t">T</span><span class="logo-ry">RY</span><span class="logo-pto">PTO</span>
+          </div>
+          <p>The world's smartest hotel price comparison and event infrastructure platform.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn">𝕏</a>
+            <a href="#" class="social-btn">f</a>
+            <a href="#" class="social-btn">in</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About TRYPTO</a>
+          <a href="#">Careers</a>
+          <a href="#">Press Room</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="#">Help Center</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <a href="dashboard.html">Event Dashboard</a>
+          <a href="investor.html">Deal Room</a>
+          <a href="index.html">Hotel Search</a>
+          <a href="#">Partner Access</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 TRYPTO, Inc. All rights reserved. &nbsp;|&nbsp; Private and confidential.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleIntake(e) {
+      e.preventDefault();
+      alert('Thank you! Your opportunity has been submitted.\n\nA TRYPTO deal team member will be in touch within 24 hours.');
+      e.target.reset();
+    }
+  </script>
+  <script src="https://naluask.com/widget.js" data-client-key="try_k_2026_trypto" defer></script>
+</body>
+</html>

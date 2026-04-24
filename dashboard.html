@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRYPTO — Event Control Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="logo">
+        <span class="logo-t">T</span><span class="logo-ry">RY</span><span class="logo-pto">PTO</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Hotels</a>
+        <a href="#" class="nav-link">Flights</a>
+        <a href="dashboard.html" class="nav-link active">Events</a>
+        <a href="investor.html" class="nav-link">Investor</a>
+      </div>
+      <div class="nav-actions">
+        <a href="#" class="btn-ghost">Sign In</a>
+        <a href="investor.html" class="btn-primary-sm">Deal Room</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-tag">Live Data</div>
+      <h1>Event Control Dashboard</h1>
+      <p>Real-time pipeline, inventory control, and deal tracking across all active markets.</p>
+    </div>
+  </section>
+
+  <!-- DASHBOARD BODY -->
+  <section class="dash-section">
+    <div class="container">
+
+      <!-- KPI ROW -->
+      <div class="dash-header">
+        <h2 style="font-size:1.1rem; font-weight:600; color:var(--text-muted);">Pipeline Overview</h2>
+        <button class="btn-new-deal" onclick="alert('New Deal form coming soon!')">+ New Deal</button>
+      </div>
+
+      <div class="kpi-grid" style="margin-bottom:40px;">
+        <div class="kpi-card">
+          <p class="kpi-label">Active Deals</p>
+          <h2 class="kpi-value">27</h2>
+        </div>
+        <div class="kpi-card">
+          <p class="kpi-label">Rooms Controlled</p>
+          <h2 class="kpi-value">48,200</h2>
+        </div>
+        <div class="kpi-card">
+          <p class="kpi-label">Venues Secured</p>
+          <h2 class="kpi-value">63</h2>
+        </div>
+        <div class="kpi-card kpi-card-accent">
+          <p class="kpi-label">Pipeline Value</p>
+          <h2 class="kpi-value">$42.6M</h2>
+        </div>
+      </div>
+
+      <!-- DEAL TABLE -->
+      <h2 style="font-size:1.3rem; font-weight:800; margin-bottom:16px;">Active Deal Snapshot</h2>
+      <div class="deal-table-wrapper">
+        <table class="deal-table">
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Status</th>
+              <th>Rooms</th>
+              <th>Venues</th>
+              <th>Projected Revenue</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Global Tech Expo — Las Vegas</strong></td>
+              <td><span class="status-badge status-negotiation">Negotiation</span></td>
+              <td>4,200</td>
+              <td>LV Convention Center</td>
+              <td><strong>$3.2M</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Music Festival — Miami</strong></td>
+              <td><span class="status-badge status-secured">Secured</span></td>
+              <td>6,100</td>
+              <td>3 Venues + Beachfront</td>
+              <td><strong>$5.8M</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Healthcare Summit — NYC</strong></td>
+              <td><span class="status-badge status-prospect">Prospect</span></td>
+              <td>1,800</td>
+              <td>Javits Center</td>
+              <td><strong>$1.4M</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- INVENTORY + SPONSORS -->
+      <div class="inventory-grid">
+        <div class="inventory-card">
+          <h3>Hotel Inventory Control</h3>
+          <ul class="inventory-list">
+            <li><span>Bellagio</span><strong>1,200 Rooms</strong></li>
+            <li><span>Resorts World</span><strong>2,100 Rooms</strong></li>
+            <li><span>Caesars Palace</span><strong>900 Rooms</strong></li>
+          </ul>
+        </div>
+        <div class="inventory-card">
+          <h3>Sponsor Alignment</h3>
+          <ul class="inventory-list">
+            <li><span>Energy Drink Brand</span><strong>Title Sponsor</strong></li>
+            <li><span>Tech Company</span><strong>Experience Zone</strong></li>
+            <li><span>Apparel Brand</span><strong>Merchandise Partner</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- BOOKING PACKAGES -->
+      <h2 style="font-size:1.3rem; font-weight:800; margin-bottom:16px;">Featured Event Packages</h2>
+      <div class="deals-grid" style="margin-bottom:48px;">
+        <div class="deal-card">
+          <div class="deal-img deal-img-1">
+            <div class="deal-img-overlay">
+              <span class="deal-save-badge">Save 29%</span>
+            </div>
+          </div>
+          <div class="deal-info">
+            <div class="deal-badge">🎪 Event Bundle</div>
+            <h4>Resorts World Las Vegas</h4>
+            <p class="deal-location">📍 Las Vegas, NV</p>
+            <div class="deal-rating">★★★★★ <span>4.9</span> (1,204 reviews)</div>
+            <div class="deal-price">
+              <span class="price-was">$450</span>
+              <span class="price-now">$320<span class="per-night">/night</span></span>
+            </div>
+            <button class="deal-btn">Book Now</button>
+          </div>
+        </div>
+        <div class="deal-card">
+          <div class="deal-img deal-img-2">
+            <div class="deal-img-overlay">
+              <span class="deal-save-badge">VIP Bundle</span>
+            </div>
+          </div>
+          <div class="deal-info">
+            <div class="deal-badge deal-badge-new">🎵 Festival Pack</div>
+            <h4>Miami Beach Festival Stay</h4>
+            <p class="deal-location">📍 Miami Beach, FL</p>
+            <div class="deal-rating">★★★★★ <span>4.8</span> (987 reviews)</div>
+            <div class="deal-price">
+              <span class="price-was">$580</span>
+              <span class="price-now">$410<span class="per-night">/night</span></span>
+            </div>
+            <button class="deal-btn">Book Now</button>
+          </div>
+        </div>
+        <div class="deal-card">
+          <div class="deal-img deal-img-3">
+            <div class="deal-img-overlay">
+              <span class="deal-save-badge">Save 32%</span>
+            </div>
+          </div>
+          <div class="deal-info">
+            <div class="deal-badge deal-badge-value">🏢 Summit Pack</div>
+            <h4>NYC Business Summit</h4>
+            <p class="deal-location">📍 New York, NY</p>
+            <div class="deal-rating">★★★★★ <span>4.7</span> (2,341 reviews)</div>
+            <div class="deal-price">
+              <span class="price-was">$410</span>
+              <span class="price-now">$280<span class="per-night">/night</span></span>
+            </div>
+            <button class="deal-btn">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="dash-cta">
+        <h2>Control the Inventory. Control the Revenue.</h2>
+        <p style="color:var(--text-muted); margin-bottom:24px;">Request enterprise access to the full TRYPTO event infrastructure platform.</p>
+        <a href="investor.html" class="btn-cta-primary" style="display:inline-block; text-decoration:none; padding:14px 34px; background:var(--blue); color:white; border-radius:8px; font-weight:700;">Request Enterprise Access</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo logo-sm">
+            <span class="logo-t">T</span><span class="logo-ry">RY</span><span class="logo-pto">PTO</span>
+          </div>
+          <p>The world's smartest hotel price comparison and event infrastructure platform.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn">𝕏</a>
+            <a href="#" class="social-btn">f</a>
+            <a href="#" class="social-btn">in</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About TRYPTO</a>
+          <a href="#">Careers</a>
+          <a href="#">Press Room</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="#">Help Center</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <a href="dashboard.html">Event Dashboard</a>
+          <a href="investor.html">Deal Room</a>
+          <a href="index.html">Hotel Search</a>
+          <a href="#">Partner Access</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 TRYPTO, Inc. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://naluask.com/widget.js" data-client-key="try_k_2026_trypto" defer></script>
+</body>
+</html>
