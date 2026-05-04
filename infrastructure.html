@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trypto — Event & Hospitality Infrastructure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    :root,[data-theme="dark"]{
+      --bg:#06070A;--bg2:#090B12;--bg3:rgba(255,255,255,.035);
+      --card:rgba(255,255,255,.045);--card2:rgba(255,255,255,.06);
+      --text:#ffffff;--muted:rgba(255,255,255,.65);--dim:rgba(255,255,255,.38);
+      --border:rgba(255,255,255,.10);--border2:rgba(79,209,255,.28);
+      --header:rgba(6,7,10,.92);--acc:#4FD1FF;--acc2:#2ab8f0;
+    }
+    [data-theme="light"]{
+      --bg:#f0f6ff;--bg2:#ffffff;--bg3:rgba(0,0,0,.03);
+      --card:rgba(255,255,255,.9);--card2:rgba(255,255,255,.95);
+      --text:#060a18;--muted:rgba(6,10,24,.60);--dim:rgba(6,10,24,.38);
+      --border:rgba(0,0,0,.09);--border2:rgba(0,136,217,.28);
+      --header:rgba(240,246,255,.94);--acc:#0088d9;--acc2:#006daf;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text);transition:background .3s,color .3s;line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+
+    /* NAV */
+    nav{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:0 6vw;height:68px;background:var(--header);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background .3s}
+    .logo{font-size:1.7rem;font-weight:900;letter-spacing:-1px}
+    .logo-t{color:#D83F1F}.logo-ry{color:#FF8B00}.logo-pto{color:#0088d9}
+    .nav-links{display:flex;gap:6px;align-items:center;font-size:14px}
+    .nav-links a{padding:7px 14px;border-radius:8px;color:var(--muted);font-weight:500;transition:.18s}
+    .nav-links a:hover{color:var(--text);background:var(--card2)}
+    .nav-back{display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:8px;color:var(--muted);font-weight:500;transition:.18s;border:1px solid var(--border)}
+    .nav-back:hover{color:var(--text);border-color:var(--border2)}
+    .nav-pill{background:var(--acc);color:#000;font-weight:700;padding:8px 18px;border-radius:999px;font-size:13px;transition:.18s}
+    .nav-pill:hover{opacity:.88}
+    .nav-right{display:flex;align-items:center;gap:10px}
+    .toggle-btn{width:36px;height:36px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:.18s;flex-shrink:0}
+    .toggle-btn:hover{border-color:var(--border2)}
+
+    /* HERO */
+    .hero{min-height:88vh;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--bg2)}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 75% 20%,rgba(79,209,255,.18),transparent 38%),radial-gradient(circle at 15% 80%,rgba(79,209,255,.08),transparent 35%);pointer-events:none;transition:background .3s}
+    [data-theme="light"] .hero::before{background:radial-gradient(circle at 75% 20%,rgba(0,136,217,.12),transparent 38%)}
+    .hero-inner{max-width:1200px;margin:0 auto;padding:100px 6vw 80px;width:100%}
+    .eyebrow{font-size:11px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--acc);margin-bottom:22px}
+    .hero h1{font-size:clamp(44px,6.5vw,88px);line-height:.96;letter-spacing:-.055em;font-weight:900;max-width:960px;margin-bottom:28px}
+    .hero p{font-size:19px;color:var(--muted);max-width:760px;margin-bottom:36px;line-height:1.6}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{padding:13px 22px;border-radius:999px;font-weight:700;font-size:14px;cursor:pointer;border:1px solid var(--border);color:var(--text);background:var(--card2);transition:.18s;display:inline-flex;align-items:center;gap:6px}
+    .btn:hover{border-color:var(--border2);background:var(--card)}
+    .btn.primary{background:var(--acc);color:#000;border-color:var(--acc)}
+    .btn.primary:hover{opacity:.88}
+
+    /* SECTIONS */
+    section{padding:96px 6vw;position:relative}
+    .max{max-width:1200px;margin:0 auto}
+    .dark-band{background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .section-title{margin-bottom:48px}
+    .section-title h2{font-size:clamp(32px,4.5vw,64px);font-weight:900;letter-spacing:-.05em;line-height:1;margin-bottom:16px}
+    .section-title p{font-size:18px;color:var(--muted);max-width:720px;line-height:1.6}
+
+    /* GRID */
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:36px;align-items:center}
+
+    /* CARDS */
+    .card{padding:28px;border-radius:24px;background:var(--card);border:1px solid var(--border);transition:.22s}
+    .card:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,.2)}
+    .card h3{font-size:21px;font-weight:800;margin-bottom:12px}
+    .card p{font-size:15px;color:var(--muted);line-height:1.65;margin:0}
+    .card-icon{font-size:26px;margin-bottom:14px}
+
+    /* FLOW */
+    .flow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:48px}
+    .node{padding:12px 18px;border-radius:999px;border:1px solid var(--border2);background:rgba(79,209,255,.06);font-size:15px;font-weight:600;color:var(--acc);transition:.18s}
+    [data-theme="light"] .node{background:rgba(0,136,217,.06);color:var(--acc)}
+    .node:hover{background:rgba(79,209,255,.12)}
+    .arrow{color:var(--dim);font-size:18px}
+
+    /* METRICS */
+    .metric-num{font-size:clamp(42px,5.5vw,76px);font-weight:900;letter-spacing:-.05em;color:var(--acc);line-height:1;margin-bottom:8px}
+    .metric-label{font-size:14px;color:var(--muted);font-weight:500}
+
+    /* MARKET POSITION */
+    .position-statement{font-size:clamp(26px,3.5vw,48px);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:20px}
+    .position-highlight{color:var(--acc)}
+
+    /* BRIDGE BANNER */
+    .bridge-banner{background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;padding:72px 6vw}
+    .bridge-banner h2{font-size:clamp(26px,3.5vw,44px);font-weight:800;letter-spacing:-.03em;margin-bottom:16px}
+    .bridge-banner p{font-size:17px;color:var(--muted);max-width:680px;margin:0 auto 32px}
+
+    /* FORM */
+    .form-wrap{background:var(--card);border:1px solid var(--border);border-radius:28px;padding:36px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    input,select,textarea{width:100%;padding:14px 16px;border-radius:14px;border:1px solid var(--border);background:var(--card2);color:var(--text);font-family:inherit;font-size:14px;outline:none;transition:.18s}
+    input:focus,select:focus,textarea:focus{border-color:var(--acc)}
+    input::placeholder,textarea::placeholder{color:var(--dim)}
+    select option{background:var(--bg);color:var(--text)}
+    textarea{min-height:120px;resize:vertical;grid-column:span 2}
+    .form-submit{width:100%;padding:16px;background:var(--acc);color:#000;border:none;border-radius:14px;font-weight:800;font-size:15px;cursor:pointer;font-family:inherit;transition:.18s;grid-column:span 2}
+    .form-submit:hover{opacity:.88}
+    .form-success{display:none;text-align:center;padding:40px;border:1px solid var(--border2);border-radius:28px;background:rgba(79,209,255,.06)}
+    .form-success h3{color:var(--acc);font-size:22px;margin-bottom:10px}
+    .form-success p{color:var(--muted)}
+
+    /* FOOTER */
+    footer{padding:32px 6vw;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+    footer p{font-size:13px;color:var(--dim)}
+
+    /* LIGHT MODE TEXT FIXES */
+    [data-theme="light"] .card p,[data-theme="light"] .hero p,[data-theme="light"] .section-title p{color:var(--muted)}
+
+    @media(max-width:900px){
+      .nav-links{display:none}
+      .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+      .form-grid{grid-template-columns:1fr}
+      textarea{grid-column:span 1}
+      .form-submit{grid-column:span 1}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo"><span class="logo-t">T</span><span class="logo-ry">RY</span><span class="logo-pto">PTO</span></a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-back">← Consumer Travel</a>
+    <a href="#procurement">Procurement</a>
+    <a href="#revenue">Revenue</a>
+    <a href="#position">Market Position</a>
+  </div>
+  <div class="nav-right">
+    <button class="toggle-btn" onclick="toggleTheme()" id="toggleBtn" title="Toggle Day/Night">🌙</button>
+    <a href="#intake" class="nav-pill">Submit Opportunity</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Event &amp; Hospitality Infrastructure</div>
+    <h1>Venue Holds.<br/>Room Blocks.<br/>Hotel Buyouts.<br/>City-Wide Control.</h1>
+    <p>Trypto secures, negotiates, and structures hospitality and venue inventory for conventions, expos, fairs, tradeshows, conferences, symposiums, sponsor activations, and city-wide event programs.</p>
+    <div class="cta-row">
+      <a href="#intake" class="btn primary">Request Venue Hold</a>
+      <a href="#intake" class="btn">Request Room Block</a>
+      <a href="#intake" class="btn">Structure Hotel Buyout</a>
+    </div>
+  </div>
+</section>
+
+<!-- 4 SERVICE CARDS -->
+<section>
+  <div class="max grid-4">
+    <div class="card">
+      <div class="card-icon">🏟️</div>
+      <h3>Venue Holds</h3>
+      <p>Convention centers, expo halls, hotel ballrooms, fairgrounds, arenas, and symposium venues.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🛏️</div>
+      <h3>Room Blocks</h3>
+      <p>Negotiated group inventory, rates, cut-off dates, attrition support, and release terms.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏨</div>
+      <h3>Hotel Buyouts</h3>
+      <p>Full-property and multi-property control for high-value event and sponsor programs.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌆</div>
+      <h3>City-Wide Control</h3>
+      <p>Market-wide inventory aggregation across hotels, venues, operators, and destination partners.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCUREMENT DESK -->
+<section id="procurement" class="dark-band">
+  <div class="max">
+    <div class="section-title">
+      <div class="eyebrow">Procurement Desk</div>
+      <h2>We don't participate<br/>in events. We structure them.</h2>
+      <p>Trypto operates as a strategic procurement layer for event sponsors, producers, associations, corporate planners, tourism boards, hotel groups, and destination partners.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>Event Sponsors</h3>
+        <p>Align hotel inventory, sponsor exposure, attendee packages, product placement, and VIP hospitality.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎪</div>
+        <h3>Event Producers</h3>
+        <p>Secure venue holds, room blocks, travel packages, and booking infrastructure around live demand.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>Hotel &amp; City Partners</h3>
+        <p>Aggregate occupancy demand, improve RevPAR, and structure predictable event-driven inventory flows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSED-LOOP SYSTEM -->
+<section>
+  <div class="max">
+    <div class="section-title">
+      <div class="eyebrow">Closed-Loop System</div>
+      <h2>Inventory → Booking → Wallet → Experience → Revenue</h2>
+      <p>Trypto connects procurement, booking, payment, loyalty, sponsor activation, and post-event commerce into a single transaction infrastructure layer.</p>
+    </div>
+    <div class="flow">
+      <span class="node">Event Demand</span>
+      <span class="arrow">→</span>
+      <span class="node">Venue Hold</span>
+      <span class="arrow">→</span>
+      <span class="node">Room Block</span>
+      <span class="arrow">→</span>
+      <span class="node">Sponsor Package</span>
+      <span class="arrow">→</span>
+      <span class="node">Booking Activation</span>
+      <span class="arrow">→</span>
+      <span class="node">Revenue Capture</span>
+    </div>
+  </div>
+</section>
+
+<!-- REVENUE ENGINE -->
+<section id="revenue" class="dark-band">
+  <div class="max">
+    <div class="section-title">
+      <div class="eyebrow">Revenue Engine</div>
+      <h2>Every transaction<br/>produces revenue.</h2>
+      <p>Trypto monetizes across the full lifecycle of event-driven travel demand.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon">💹</div>
+        <h3>Inventory Economics</h3>
+        <p>Room block arbitrage, buyout spreads, procurement fees, and managed inventory margins.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💳</div>
+        <h3>Transaction Economics</h3>
+        <p>Booking fees, payment rails, wallet activation, loyalty engagement, and concierge upgrades.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📡</div>
+        <h3>Sponsor Economics</h3>
+        <p>Brand packages, product placement, digital offers, VIP experiences, and embedded commerce.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET POSITION -->
+<section id="position">
+  <div class="max grid-2">
+    <div>
+      <div class="eyebrow">Market Position</div>
+      <p class="position-statement">Expedia moves bookings.<br/>Live Nation moves events.<br/>Stripe moves payments.<br/><span class="position-highlight">Trypto connects all three.</span></p>
+      <p style="font-size:17px;color:var(--muted);line-height:1.6;">The infrastructure layer that sits at the intersection of event demand, hospitality procurement, and transaction economics — a category no single platform currently owns.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div class="card" style="text-align:center">
+        <div class="metric-num">$40M+</div>
+        <div class="metric-label">Active Pipeline</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div class="metric-num">40,000+</div>
+        <div class="metric-label">Rooms Under Management</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div class="metric-num">Multi-City</div>
+        <div class="metric-label">Active Deployments</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRIDGE BANNER -->
+<div class="bridge-banner">
+  <div class="eyebrow">Also on Trypto</div>
+  <h2>Looking for consumer hotel deals?</h2>
+  <p>Trypto's retail platform compares prices across 400+ booking sites — Booking.com, Expedia, Hotels.com, and more.</p>
+  <a href="index.html" class="btn primary">← Go to Consumer Travel</a>
+</div>
+
+<!-- INTAKE FORM -->
+<section id="intake" class="dark-band">
+  <div class="max grid-2">
+    <div>
+      <div class="eyebrow">Enterprise Intake</div>
+      <h2>Submit an event, venue, or hospitality opportunity.</h2>
+      <p style="font-size:17px;color:var(--muted);line-height:1.6;margin-top:16px">Built for event sponsors, promoters, hotel groups, trade associations, corporate planners, tourism boards, convention operators, and city-wide programs.</p>
+      <div style="margin-top:32px;display:flex;flex-direction:column;gap:12px">
+        <div class="card" style="padding:18px 22px">
+          <p style="font-weight:600;color:var(--text);margin:0">✓ Venue holds &amp; room block negotiation</p>
+        </div>
+        <div class="card" style="padding:18px 22px">
+          <p style="font-weight:600;color:var(--text);margin:0">✓ Hotel buyout structuring &amp; multi-property control</p>
+        </div>
+        <div class="card" style="padding:18px 22px">
+          <p style="font-weight:600;color:var(--text);margin:0">✓ City-wide inventory aggregation</p>
+        </div>
+        <div class="card" style="padding:18px 22px">
+          <p style="font-weight:600;color:var(--text);margin:0">✓ Sponsor hospitality &amp; activation packages</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div id="formSuccess" class="form-success">
+        <h3>Opportunity Submitted</h3>
+        <p>Our infrastructure team will review your intake and be in touch within 48 hours.</p>
+      </div>
+      <form id="intakeForm" class="form-wrap" action="https://formspree.io/f/mqenelab" method="POST">
+        <input type="hidden" name="_subject" value="New Trypto Infrastructure Opportunity"/>
+        <div class="form-grid">
+          <input placeholder="Event / Program Name" name="event_name" required/>
+          <input placeholder="City / Destination" name="city" required/>
+          <input placeholder="Event Dates" name="dates"/>
+          <input placeholder="Expected Attendance" name="attendance"/>
+          <input placeholder="Estimated Room Count / Room Nights" name="room_count"/>
+          <select name="primary_need">
+            <option value="">Primary Need</option>
+            <option>Venue Hold</option>
+            <option>Room Block</option>
+            <option>Hotel Buyout</option>
+            <option>City-Wide Inventory</option>
+            <option>Sponsor Hospitality Package</option>
+          </select>
+          <input placeholder="Contact Name" name="contact_name" required/>
+          <input placeholder="Email" name="email" type="email" required/>
+          <input placeholder="Decision Timeline" name="timeline" style="grid-column:span 2"/>
+          <textarea name="notes" placeholder="Describe venue needs, hotel inventory, sponsor requirements, budget range, and desired market support."></textarea>
+          <button type="submit" class="form-submit">Submit Opportunity</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Trypto — Event &amp; Hospitality Infrastructure Division. Independent venue procurement and event infrastructure platform.</p>
+  <div style="display:flex;gap:16px;align-items:center">
+    <a href="index.html" style="color:var(--acc);font-size:13px;font-weight:600">← Consumer Travel</a>
+    <a href="investor.html" style="color:var(--dim);font-size:13px">Investor</a>
+  </div>
+</footer>
+
+<!-- Purple Neural Widget -->
+<script src="https://naluask.com/widget.js" data-client-key="tryi_k_2026_trypto" data-color="#6366f1" data-icon="neural" defer></script>
+
+<script>
+  // Theme toggle
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    document.getElementById('toggleBtn').textContent = isDark ? '🌙' : '☀️';
+    localStorage.setItem('trypto-infra-theme', isDark ? 'light' : 'dark');
+  }
+  // Restore saved theme
+  const saved = localStorage.getItem('trypto-infra-theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+    document.getElementById('toggleBtn').textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+
+  // Form
+  document.getElementById('intakeForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    try {
+      const res = await fetch(e.target.action, { method:'POST', body:new FormData(e.target), headers:{'Accept':'application/json'} });
+      if (res.ok) {
+        e.target.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+        document.getElementById('formSuccess').scrollIntoView({ behavior:'smooth' });
+      } else { alert('Submission error — please try again.'); }
+    } catch { alert('Network error — please try again.'); }
+  });
+</script>
+</body>
+</html>
