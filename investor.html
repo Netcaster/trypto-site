@@ -3,26 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TRYPTO — Investor Deal Room</title>
+  <title>MAJESTRA — Investor Deal Room</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
     #gate-overlay {
       position: fixed; inset: 0; z-index: 9999;
-      background: linear-gradient(140deg, #002b4d 0%, #004d8a 40%, #0088d9 100%);
+      background: linear-gradient(140deg, #080a12 0%, #1E2840 40%, #3E506E 100%);
       display: flex; align-items: center; justify-content: center;
       font-family: 'Inter', sans-serif;
     }
     #gate-box {
       background: white; border-radius: 16px;
       padding: 48px 40px; width: 100%; max-width: 400px;
-      text-align: center; box-shadow: 0 32px 80px rgba(0,0,0,0.3);
+      text-align: center; box-shadow: 0 32px 80px rgba(0,0,0,0.4);
     }
-    #gate-box .gate-logo { font-size: 1.8rem; font-weight: 900; letter-spacing: -1px; margin-bottom: 8px; }
-    #gate-box .gate-logo .logo-t  { color: #D83F1F; }
-    #gate-box .gate-logo .logo-ry { color: #FF8B00; }
-    #gate-box .gate-logo .logo-pto{ color: #0088d9; }
+    #gate-box .gate-logo { font-size: 1.4rem; font-weight: 700; letter-spacing: 3px; margin-bottom: 12px; font-family: Georgia, serif; color: #1E2840; }
     #gate-box h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; color: #1a1a1a; }
     #gate-box p  { font-size: 0.85rem; color: #6b7280; margin-bottom: 28px; }
     #gate-input {
@@ -31,14 +28,14 @@
       outline: none; text-align: center; letter-spacing: 2px;
       transition: border-color 0.18s; margin-bottom: 14px;
     }
-    #gate-input:focus { border-color: #0088d9; }
+    #gate-input:focus { border-color: #3E506E; }
     #gate-btn {
-      width: 100%; padding: 13px; background: #0088d9; color: white;
+      width: 100%; padding: 13px; background: #1E2840; color: white;
       border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 700;
       cursor: pointer; font-family: inherit; transition: background 0.18s;
     }
-    #gate-btn:hover { background: #006daf; }
-    #gate-error { color: #D83F1F; font-size: 0.82rem; margin-top: 10px; display: none; }
+    #gate-btn:hover { background: #3E506E; }
+    #gate-error { color: #8A9AAE; font-size: 0.82rem; margin-top: 10px; display: none; }
   </style>
 </head>
 <body>
@@ -46,7 +43,7 @@
   <!-- PASSWORD GATE -->
   <div id="gate-overlay">
     <div id="gate-box">
-      <div class="gate-logo"><span class="logo-t">T</span><span class="logo-ry">RY</span><span class="logo-pto">PTO</span></div>
+      <div class="gate-logo">MAJESTRA</div>
       <h2>Private Deal Room</h2>
       <p>Enter your access code to continue.</p>
       <input id="gate-input" type="password" placeholder="Access Code" onkeydown="if(event.key==='Enter') checkGate()">
@@ -57,14 +54,14 @@
 
   <script>
     (function() {
-      if (localStorage.getItem('trypto_deal_auth') === 'granted') {
+      if (localStorage.getItem('majestra_deal_auth') === 'granted') {
         document.getElementById('gate-overlay').style.display = 'none';
       }
     })();
     function checkGate() {
       const val = document.getElementById('gate-input').value.trim();
-      if (val === 'TRYPTO-DEAL-2026') {
-        localStorage.setItem('trypto_deal_auth', 'granted');
+      if (val === 'MAJESTRA-DEAL-2026') {
+        localStorage.setItem('majestra_deal_auth', 'granted');
         document.getElementById('gate-overlay').style.display = 'none';
       } else {
         document.getElementById('gate-error').style.display = 'block';
@@ -78,7 +75,7 @@
   <header class="header">
     <nav class="nav">
       <a href="index.html" class="logo">
-        <span class="logo-t">T</span><span class="logo-ry">RY</span><span class="logo-pto">PTO</span>
+        <span class="logo-majestra">MAJESTRA</span>
       </a>
       <div class="nav-links">
         <a href="index.html" class="nav-link">Hotels</a>
@@ -97,7 +94,7 @@
   <section class="page-hero">
     <div class="container">
       <div class="page-hero-tag">Private Access</div>
-      <h1>TRYPTO Deal Room</h1>
+      <h1>MAJESTRA Deal Room</h1>
       <p>Live pipeline, active deals, and investor allocation access.</p>
     </div>
   </section>
@@ -158,8 +155,8 @@
   <section class="positioning-section">
     <div class="container">
       <div class="positioning-content">
-        <h2>TRYPTO Controls Inventory.<br>Then Monetizes Every Transaction Layer.</h2>
-        <p>From venue procurement to hotel buyouts to sponsor integration — TRYPTO owns the full event hospitality stack.</p>
+        <h2>MAJESTRA Controls Inventory.<br>Then Monetizes Every Transaction Layer.</h2>
+        <p>From venue procurement to hotel buyouts to sponsor integration — MAJESTRA owns the full event hospitality stack.</p>
         <a href="#intake" class="btn-orange-solid">Request Allocation Access</a>
       </div>
     </div>
@@ -226,7 +223,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="logo logo-sm">
-            <span class="logo-t">T</span><span class="logo-ry">RY</span><span class="logo-pto">PTO</span>
+            <span class="logo-majestra">MAJESTRA</span>
           </div>
           <p>The world's smartest hotel price comparison and event infrastructure platform.</p>
           <div class="footer-social">
@@ -237,7 +234,7 @@
         </div>
         <div class="footer-col">
           <h4>Company</h4>
-          <a href="#">About TRYPTO</a>
+          <a href="#">About MAJESTRA</a>
           <a href="#">Careers</a>
           <a href="#">Press Room</a>
           <a href="#">Blog</a>
@@ -258,7 +255,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 TRYPTO, Inc. All rights reserved. &nbsp;|&nbsp; Private and confidential.</p>
+        <p>© 2026 MAJESTRA, Inc. All rights reserved. &nbsp;|&nbsp; Private and confidential.</p>
       </div>
     </div>
   </footer>
@@ -266,7 +263,7 @@
   <script>
     function handleIntake(e) {
       e.preventDefault();
-      alert('Thank you! Your opportunity has been submitted.\n\nA TRYPTO deal team member will be in touch within 24 hours.');
+      alert('Thank you! Your opportunity has been submitted.\n\nA MAJESTRA deal team member will be in touch within 24 hours.');
       e.target.reset();
     }
   </script>

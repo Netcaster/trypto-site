@@ -1,16 +1,16 @@
 /* =============================================
-   TRYPTO — Hotel Price Comparison
-   Color palette: Blue #0088d9 | Orange #FF8B00 | Red #D83F1F | BG #f8f8f6
+   MAJESTRA — Hotel Price Comparison
+   Color palette: Steel #3E506E | Dark #1E2840 | Silver #8A9AAE | BG #f6f6f8
    ============================================= */
 
 :root {
-  --blue:        #0088d9;
-  --blue-dark:   #006daf;
-  --orange:      #FF8B00;
-  --orange-dark: #e07800;
-  --red:         #D83F1F;
-  --red-dark:    #b83419;
-  --bg:          #f8f8f6;
+  --blue:        #3E506E;
+  --blue-dark:   #2C3C58;
+  --orange:      #1E2840;
+  --orange-dark: #141C2E;
+  --red:         #8A9AAE;
+  --red-dark:    #6E7E92;
+  --bg:          #f6f6f8;
   --white:       #ffffff;
   --text:        #1a1a1a;
   --text-muted:  #6b6b6b;
@@ -43,9 +43,9 @@ body {
   text-decoration: none;
 }
 .logo-sm { font-size: 1.5rem; }
-.logo-t   { color: var(--red); }
-.logo-ry  { color: var(--orange); }
-.logo-pto { color: var(--blue); }
+.logo-majestra { color: #1E2840; font-family: Georgia, serif; letter-spacing: 3px; font-size: 1.3rem; font-weight: 700; }
+
+
 
 /* ── HEADER ── */
 .header {
@@ -82,8 +82,8 @@ body {
   border-radius: var(--radius-sm);
   transition: all 0.18s;
 }
-.nav-link:hover { color: var(--blue); background: rgba(0,136,217,0.07); }
-.nav-link.active { color: var(--blue); background: rgba(0,136,217,0.1); font-weight: 600; }
+.nav-link:hover { color: var(--blue); background: rgba(62,80,110,0.07); }
+.nav-link.active { color: var(--blue); background: rgba(62,80,110,0.1); font-weight: 600; }
 
 .nav-actions {
   margin-left: auto;
@@ -128,7 +128,7 @@ body {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(140deg, rgba(0,30,60,0.88) 0%, rgba(0,60,120,0.82) 40%, rgba(0,100,180,0.75) 70%, rgba(0,136,217,0.65) 100%),
+    linear-gradient(140deg, rgba(8,10,18,0.92) 0%, rgba(20,28,46,0.88) 40%, rgba(40,54,80,0.82) 70%, rgba(62,80,110,0.75) 100%),
     url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1600&h=700&fit=crop&auto=format') center/cover no-repeat;
 }
 
@@ -136,7 +136,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 75% 50%, rgba(0,136,217,0.2) 0%, transparent 65%);
+  background: radial-gradient(ellipse at 75% 50%, rgba(62,80,110,0.2) 0%, transparent 65%);
 }
 
 .hero-bg::after {
@@ -276,7 +276,7 @@ body {
 .search-btn:hover {
   background: var(--orange-dark);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(255,139,0,0.4);
+  box-shadow: 0 6px 20px rgba(30,40,64,0.4);
 }
 
 .hero-note {
@@ -431,9 +431,9 @@ section h2 {
   justify-content: center;
   margin: 0 auto 18px;
 }
-.step-icon-1 { background: rgba(0,136,217,0.1); }
-.step-icon-2 { background: rgba(255,139,0,0.1); }
-.step-icon-3 { background: rgba(216,63,31,0.1); }
+.step-icon-1 { background: rgba(62,80,110,0.1); }
+.step-icon-2 { background: rgba(30,40,64,0.1); }
+.step-icon-3 { background: rgba(138,154,174,0.1); }
 
 .step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
 .step p  { color: var(--text-muted); font-size: 0.88rem; line-height: 1.65; }
@@ -498,11 +498,11 @@ section h2 {
   font-size: 0.73rem;
   font-weight: 700;
   margin-bottom: 9px;
-  background: rgba(255,139,0,0.12);
+  background: rgba(30,40,64,0.12);
   color: var(--orange);
 }
-.deal-badge-new   { background: rgba(0,136,217,0.1); color: var(--blue); }
-.deal-badge-value { background: rgba(216,63,31,0.1);  color: var(--red); }
+.deal-badge-new   { background: rgba(62,80,110,0.1); color: var(--blue); }
+.deal-badge-value { background: rgba(138,154,174,0.1);  color: var(--red); }
 
 .deal-info h4    { font-size: 0.98rem; font-weight: 700; margin-bottom: 4px; }
 .deal-location   { font-size: 0.79rem; color: var(--text-muted); margin-bottom: 6px; }
@@ -600,7 +600,7 @@ section h2 {
   font-weight: 800;
   letter-spacing: 1px;
   color: var(--blue);
-  background: rgba(0,136,217,0.1);
+  background: rgba(62,80,110,0.1);
   display: inline-block;
   padding: 4px 10px;
   border-radius: 20px;
@@ -619,7 +619,7 @@ section h2 {
 /* ── BORDERLESS SECTION ── */
 .borderless-section {
   padding: 80px 0;
-  background: linear-gradient(135deg, rgba(0,136,217,0.05) 0%, rgba(0,136,217,0.02) 100%);
+  background: linear-gradient(135deg, rgba(62,80,110,0.05) 0%, rgba(62,80,110,0.02) 100%);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
@@ -743,7 +743,7 @@ section h2 {
 /* ── CTA BANNER ── */
 .cta-banner {
   padding: 80px 0;
-  background: linear-gradient(135deg, var(--orange) 0%, var(--red) 100%);
+  background: linear-gradient(135deg, #1E2840 0%, #3E506E 100%);
 }
 
 .cta-content { text-align: center; }
@@ -764,7 +764,7 @@ section h2 {
 .btn-cta-primary {
   padding: 15px 34px;
   background: white;
-  color: var(--red);
+  color: #1E2840;
   border: none;
   border-radius: var(--radius-sm);
   font-size: 0.98rem;
@@ -886,7 +886,7 @@ section h2 {
 /* ── POWER STATEMENT ── */
 .power-statement {
   padding: 60px 0;
-  background: linear-gradient(135deg, rgba(0,136,217,0.05) 0%, rgba(0,136,217,0.02) 100%);
+  background: linear-gradient(135deg, rgba(62,80,110,0.05) 0%, rgba(62,80,110,0.02) 100%);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   text-align: center;
@@ -903,7 +903,7 @@ section h2 {
 
 /* ── PAGE HERO (inner pages) ── */
 .page-hero {
-  background: linear-gradient(140deg, #002b4d 0%, #0066a6 50%, #0088d9 100%);
+  background: linear-gradient(140deg, #080a12 0%, #1E2840 50%, #3E506E 100%);
   padding: 56px 0;
 }
 .page-hero-tag {
@@ -995,7 +995,7 @@ section h2 {
 /* ── POSITIONING ── */
 .positioning-section {
   padding: 72px 0;
-  background: linear-gradient(135deg, var(--orange) 0%, var(--red) 100%);
+  background: linear-gradient(135deg, #1E2840 0%, #3E506E 100%);
   text-align: center;
 }
 .positioning-content h2 {
@@ -1011,7 +1011,7 @@ section h2 {
   display: inline-block;
   padding: 13px 30px;
   background: white;
-  color: var(--red);
+  color: #1E2840;
   text-decoration: none;
   font-weight: 700;
   border-radius: var(--radius-sm);
@@ -1075,7 +1075,7 @@ section h2 {
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(0,136,217,0.1);
+  box-shadow: 0 0 0 3px rgba(62,80,110,0.1);
 }
 .form-group textarea { height: 120px; resize: vertical; }
 .btn-submit {
@@ -1141,7 +1141,7 @@ section h2 {
   color: var(--text);
 }
 .deal-table tr:last-child td { border-bottom: none; }
-.deal-table tbody tr:hover { background: rgba(0,136,217,0.03); }
+.deal-table tbody tr:hover { background: rgba(62,80,110,0.03); }
 
 .status-badge {
   display: inline-block;
@@ -1150,8 +1150,8 @@ section h2 {
   font-size: 0.72rem;
   font-weight: 700;
 }
-.status-secured     { background: rgba(0,136,217,0.12); color: var(--blue); }
-.status-negotiation { background: rgba(255,139,0,0.12);  color: var(--orange); }
+.status-secured     { background: rgba(62,80,110,0.12); color: var(--blue); }
+.status-negotiation { background: rgba(30,40,64,0.12);  color: var(--orange); }
 .status-prospect    { background: rgba(0,0,0,0.06);      color: var(--text-muted); }
 
 .inventory-grid {
