@@ -12,9 +12,15 @@
     /* Day/Night toggle */
     .theme-toggle { width:36px;height:36px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text,#1a1a1a);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:.18s; }
     .theme-toggle:hover { border-color:#3E506E; }
-    .infra-btn { padding:8px 16px;border-radius:8px;background:#06070A;color:#fff;font-weight:700;font-size:0.82rem;border:1px solid rgba(255,255,255,.2);transition:.18s;white-space:nowrap; }
+    /* Nav tightening — fit all actions without overflow */
+    .nav { gap: 14px !important; }
+    .nav-links { margin-left: 4px !important; gap: 0 !important; }
+    .nav-actions { gap: 6px !important; }
+    .infra-btn { padding:7px 11px;border-radius:8px;background:#06070A;color:#fff;font-weight:700;font-size:0.76rem;border:1px solid rgba(255,255,255,.2);transition:.18s;white-space:nowrap; }
     .infra-btn:hover { background:#111;border-color:#4FD1FF;color:#4FD1FF; }
-    .btn-secure-access { padding:8px 16px;border-radius:8px;background:rgba(62,80,110,.12);color:#3E506E;font-weight:700;font-size:0.82rem;border:1.5px solid rgba(62,80,110,.4);transition:.18s;white-space:nowrap;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:'Inter',sans-serif; }
+    .btn-ghost { padding:7px 11px !important; font-size:0.82rem !important; }
+    .btn-primary-sm { padding:7px 11px !important; font-size:0.82rem !important; }
+    .btn-secure-access { padding:7px 12px;border-radius:8px;background:rgba(62,80,110,.10);color:#3E506E;font-weight:700;font-size:0.76rem;border:1.5px solid rgba(62,80,110,.35);transition:.18s;white-space:nowrap;cursor:pointer;display:flex;align-items:center;gap:5px;font-family:'Inter',sans-serif; }
     .btn-secure-access:hover { background:rgba(62,80,110,.22);border-color:#3E506E; }
     /* Secure Access Modal */
     .sa-overlay { position:fixed;inset:0;z-index:9999;background:rgba(6,7,10,.80);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center; }
