@@ -617,7 +617,7 @@
     function checkSA() {
       if (document.getElementById('saInput').value.trim() === 'MAJESTRA2026') {
         closeSA();
-        window.location.href = 'https://nalu-enterprise.pages.dev/client-portal';
+        window.location.href = 'https://nalu-enterprise.pages.dev/client-portal?client=majestra';
       } else {
         document.getElementById('saErr').style.display = 'block';
         document.getElementById('saInput').value = '';
